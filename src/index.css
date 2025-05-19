@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F9F9F9;
+  color: #333333;
+}
+
+.telegram-container {
+  max-width: 450px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 18px;
+  margin-bottom: 10px;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.bot-message {
+  background-color: #f1f1f1;
+  border-top-left-radius: 5px;
+  align-self: flex-start;
+}
+
+.user-message {
+  background-color: #3E4095;
+  color: white;
+  border-top-right-radius: 5px;
+  align-self: flex-end;
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #f1f1f1;
+  border-radius: 18px;
+  border-top-left-radius: 5px;
+  max-width: 100px;
+  margin-bottom: 10px;
+}
+
+.typing-dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #999;
+  margin: 0 2px;
+  animation: typingAnimation 1.5s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes typingAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.option-button {
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 18px;
+  padding: 8px 15px;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option-button:hover {
+  background-color: #e0e0e0;
+}
+
+.option-button.selected {
+  background-color: #3E4095;
+  color: white;
+  border-color: #3E4095;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-day {
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calendar-day:hover:not(.disabled) {
+  background-color: #e0e0e0;
+}
+
+.calendar-day.selected {
+  background-color: #3E4095;
+  color: white;
+}
+
+.calendar-day.disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.time-slot {
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #f1f1f1;
+}
+
+.time-slot:hover:not(.disabled) {
+  background-color: #e0e0e0;
+}
+
+.time-slot.selected {
+  background-color: #3E4095;
+  color: white;
+}
+
+.time-slot.disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
